@@ -13,7 +13,7 @@ void setup() {
   bY=(height/3);
   bW=(width-2*(width/3));
   bH=(height-3*(height/4));
-  buttonColor
+  buttonColor=color(75,232,68);
 }
 
 
@@ -23,16 +23,22 @@ void draw() {
   if (state==1) {
     drawStart();
   }
+  
 }
 
 
 void drawStart(){
   drawButton();
-  if mouse
+  if (bX<mouseX && mouseX>bW && bY<mouseX && mouseY<bH){
+    buttonColor=color(255,31,43);
+  }
+  else{
+    buttonColor=color(75,232,68);    
+  }
 }
 
 void drawButton() {
-  fill (12, 232, 24);
+  fill (buttonColor);
   rect(bX, bY, bW, bH);
   textSize(100);
   fill(0);
